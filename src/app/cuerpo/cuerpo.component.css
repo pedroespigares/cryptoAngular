@@ -1,0 +1,67 @@
+div[class~="d-flex col-lg-6"], .card-text{
+    height: 100%;
+    color: #F2BC07;
+    font-family: Gotham;
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+div[class~="card"]{
+    background-color: #0C0E12;
+    border: none;
+}
+
+h5.card-title{
+    color: white;
+    font-size: 6rem;
+}
+
+h5.mini-card-title{
+    color: white;
+    font-size: 2.5rem;
+    color: #F2BC07;
+}
+
+.mini-card-text{
+    color: white;
+    font-weight: bold;
+}
+
+.fa-solid{
+    color: #F2BC07;
+    font-size: 6rem;
+    box-shadow: 0 0 0 0.1rem #F2BC07;
+    padding: 2rem;
+    border-radius: 50%;
+}
+
+main{
+    background-color: #0C0E12;
+}
+
+.btn-primary{
+    background-color: #F2BC07;
+    color: #191026;
+    border: none;
+    font-weight: bolder;
+    font-family: Gotham;
+    font-size: 1.3rem;
+    width: 25%;
+    border: 1px solid #F2BC07;
+}
+
+.btn-primary:hover{
+    background-color: #0C0E12;
+    color: #F2BC07;
+    border: 1px solid #F2BC07;
+}
+
+input{
+    font-family: Gotham;
+}
+
+input:focus{
+    border-color: #F2BC07;
+    box-shadow: 0 0 0 0.1rem #F2BC07;
+}

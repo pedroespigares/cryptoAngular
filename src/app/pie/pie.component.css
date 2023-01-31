@@ -1,0 +1,9 @@
+footer{
+    background-color: #0C0E12 ! important;
+    color: #F2BC07;
+}
+
+footer a {
+    color: #884FA1 !important;
+    transition: 0.2s;
+}

@@ -10,6 +10,15 @@ export class AppComponent {
   selectedCryptos = new Array();
 
   capturarAddCrypto(crypto: string){
-    this.selectedCryptos.push(crypto);
+    let exists = false;
+    this.selectedCryptos.find((element) => {
+      if(element == crypto){
+        exists = true;
+      }
+    })
+    
+    if(!exists){
+      this.selectedCryptos.push(crypto);
+    }
   }
 }
