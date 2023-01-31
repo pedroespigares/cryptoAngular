@@ -1,0 +1,15 @@
+nav{
+    background-color: #0C0E12;
+}
+
+nav ul li a.not-selected{
+    color: #F2BC07;
+    transition: 0.2s;
+    border: none;
+}
+
+nav ul li a.not-selected:hover{
+    color: #0C0E12;
+    background-color: #F2BC07;
+    transition: 0.2s;
+}
