@@ -8,6 +8,12 @@ import { CuerpoComponent } from './cuerpo/cuerpo.component';
 import { PieComponent } from './pie/pie.component';
 import { DetalleMonedaComponent } from './detalle-moneda/detalle-moneda.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MonedasComponent } from './monedas/monedas.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -15,13 +21,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CabeceraComponent,
     CuerpoComponent,
     PieComponent,
-    DetalleMonedaComponent
+    DetalleMonedaComponent,
+    MonedasComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cryptoangular": {
+      "hosting": {
+        "cryptoAngular": [
+          "cryptoangular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cryptoangular"
+  }
+}

@@ -15,6 +15,7 @@ nav li a{
     padding-right: 1rem;
     border-radius: 10rem;
     font-family: Gotham;
+    text-align: center;
 }
 
 a.nav-link:hover{
@@ -43,4 +44,9 @@ a.nav-link:hover{
 .btn:hover{
     background-color: #191026 !important;
     color: #F2BC07;
+}
+
+.navbar-toggler{
+    background-color: #F2BC07;
+    box-shadow: none;
 }

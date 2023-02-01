@@ -7,18 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cryptoAngular';
-  selectedCryptos = new Array();
+  // selectedCryptos = new Array();
 
-  capturarAddCrypto(crypto: string){
-    let exists = false;
-    this.selectedCryptos.find((element) => {
-      if(element == crypto){
-        exists = true;
-      }
-    })
+  // capturarAddCrypto(crypto: string){
+  //   let exists = false;
+  //   this.selectedCryptos.find((element) => {
+  //     if(element == crypto){
+  //       exists = true;
+  //     }
+  //   })
     
-    if(!exists){
-      this.selectedCryptos.push(crypto);
-    }
-  }
+  //   if(!exists){
+  //     this.selectedCryptos.push(crypto);
+  //   }
+  // }
 }

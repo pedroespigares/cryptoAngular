@@ -5,6 +5,4 @@ import { Component, Input} from '@angular/core';
   templateUrl: './cuerpo.component.html',
   styleUrls: ['./cuerpo.component.css']
 })
-export class CuerpoComponent {
-  @Input() cryptosToShow = new Array();
-}
+export class CuerpoComponent {}

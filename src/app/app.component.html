@@ -7,8 +7,8 @@
   <title>Crypto Angular</title>
 </head>
 <body>
-  <app-cabecera (addCrypto)="capturarAddCrypto($event)"></app-cabecera>
-  <app-cuerpo [cryptosToShow]="selectedCryptos"></app-cuerpo>
+  <app-cabecera></app-cabecera>
+  <router-outlet></router-outlet>
   <app-pie></app-pie>
 </body>
 </html>
