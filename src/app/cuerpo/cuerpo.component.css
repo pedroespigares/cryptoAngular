@@ -1,6 +1,6 @@
 div[class~="d-flex col-lg-6"], .card-text{
     height: 100%;
-    color: #F2BC07;
+    color: var(--yellow);
     font-family: Gotham;
     font-size: 1.5rem;
     text-align: left;
@@ -8,7 +8,7 @@ div[class~="d-flex col-lg-6"], .card-text{
 }
 
 div[class~="card"]{
-    background-color: #0C0E12;
+    background-color: var(--black);
     border: none;
 }
 
@@ -20,7 +20,7 @@ h5.card-title{
 h5.mini-card-title{
     color: white;
     font-size: 2.5rem;
-    color: #F2BC07;
+    color: var(--yellow);
 }
 
 .mini-card-text{
@@ -29,32 +29,32 @@ h5.mini-card-title{
 }
 
 .fa-solid{
-    color: #F2BC07;
+    color: var(--yellow);
     font-size: 6rem;
-    box-shadow: 0 0 0 0.1rem #F2BC07;
+    box-shadow: 0 0 0 0.1rem var(--yellow);
     padding: 2rem;
     border-radius: 50%;
 }
 
 main{
-    background-color: #0C0E12;
+    background-color: var(--black);
 }
 
 .btn-primary{
-    background-color: #F2BC07;
-    color: #191026;
+    background-color: var(--yellow);
+    color: var(--purple);
     border: none;
     font-weight: bolder;
     font-family: Gotham;
     font-size: 1.3rem;
     width: 25%;
-    border: 1px solid #F2BC07;
+    border: 1px solid var(--yellow);
 }
 
 .btn-primary:hover{
-    background-color: #0C0E12;
-    color: #F2BC07;
-    border: 1px solid #F2BC07;
+    background-color: var(--black);
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
 }
 
 input{
@@ -62,6 +62,6 @@ input{
 }
 
 input:focus{
-    border-color: #F2BC07;
-    box-shadow: 0 0 0 0.1rem #F2BC07;
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 0.1rem var(--yellow);
 }

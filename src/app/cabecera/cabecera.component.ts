@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -6,5 +7,13 @@ import { Component} from '@angular/core';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent {
-  
+  constructor(public auth: AuthService) { }
+
+  ngOnInit(){
+    this.auth.checkAuthState();
+  }
+
+  logout(){
+    this.auth.signOut();
+  }
 }

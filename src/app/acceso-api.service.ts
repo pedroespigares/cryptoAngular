@@ -18,26 +18,4 @@ export class AccesoAPIService {
       this.cryptoList = data;
     })
   }
-  
-  // Para iterar sobre los datos de la base de datos
-  // let dato of datosAsociaciones | async
-
-  // datosAsociaciones: Observable<any[]>;;
-
-  // datosModo2 = new Array<any>();
-
-  // Este metodo se trae los datos de la base de datos tal cual
-
-  // constructor(public firestore: Firestore){
-  //   const datos = collection(firestore, 'asociaciones');
-  //   this.datosAsociaciones = collectionData(query(datos, where('userID', '==', 'userID')));
-  // }
-
-  // Para escribir en la base de datos dentro de un metodo
-
-  // escribirDatos(){
-    // addDoc(collection(this.firestore, 'asociaciones'), {
-    //   userID: 'userID',
-    //   nombre: 'nombre',
-    // });
 }

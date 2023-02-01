@@ -1,1 +1,63 @@
-<p>monedas works!</p>
+<main>
+  <h1 class="text-center pt-5">{{this.auth.userEmail.split('@')[0]}} portfolio</h1>
+  <div class="card lg-3" style="max-width: 100%">
+    <div class="row g-0 justify-content-center align-items-center">
+      <div class="col-lg-2 d-flex flex-column justify-content-start align-items-start">
+        <table class="allMonedas">
+          <tr *ngFor="let singleMoneda of this.datosAPI.cryptoList | slice : (page - 1) * pageSize : page * pageSize">
+            <td (click)="selectMoneda(singleMoneda, $event)">
+              {{ singleMoneda.name }}
+            </td>
+          </tr>
+        </table>
+        <ngb-pagination
+          [collectionSize]="this.datosAPI.cryptoList.length"
+          [pageSize]="pageSize"
+          [directionLinks]="false"
+          [(page)]="page"
+          class="w-100"
+        >
+        </ngb-pagination>
+      </div>
+      <div class="col-lg-10 d-flex justify-content-center align-items-center">
+        <h2 *ngIf="!this.firebase.datosAsociaciones">No hay monedas seleccionadas</h2>
+        <table *ngIf="this.firebase.datosAsociaciones" class="monedasShowing">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Symbol</th>
+              <th>Price (€)</th>
+              <th>Capitalization (€)</th>
+              <th>Volume (€)</th>
+              <th>Higher price (24h)</th>
+              <th>Lower price (24h)</th>
+              <th>Details</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let singleMoneda of this.firebase.datosAsociaciones | async">
+              <td>
+                <img
+                  src="{{ singleMoneda.currency.image.large }}"
+                  alt="{{ singleMoneda.currency.name }}"
+                  width="50px"
+                />
+              </td>
+              <td>{{ singleMoneda.currency.name }}</td>
+              <td>{{ singleMoneda.currency.symbol }}</td>
+              <td>{{ singleMoneda.currency.market_data.current_price.eur }}</td>
+              <td>{{ singleMoneda.currency.market_data.market_cap.eur }}</td>
+              <td>{{ singleMoneda.currency.market_data.total_volume.eur }}</td>
+              <td>{{ singleMoneda.currency.market_data.high_24h.eur }}</td>
+              <td>{{ singleMoneda.currency.market_data.low_24h.eur }}</td>
+              <td><button class="btn-primary">See details</button></td>
+              <td><i (click)="deleteMoneda(singleMoneda.currency)" class="fa-solid fa-trash"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

@@ -14,6 +14,9 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { AppRoutingModule } from './app-routing.module';
     CuerpoComponent,
     PieComponent,
     DetalleMonedaComponent,
-    MonedasComponent
+    MonedasComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,8 @@ import { AppRoutingModule } from './app-routing.module';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

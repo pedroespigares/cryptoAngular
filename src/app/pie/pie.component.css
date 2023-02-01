@@ -1,6 +1,6 @@
 footer{
-    background-color: #0C0E12 ! important;
-    color: #F2BC07;
+    background-color: var(--black) ! important;
+    color: var(--yellow);
 }
 
 footer a {
