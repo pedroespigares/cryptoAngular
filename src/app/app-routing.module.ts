@@ -5,6 +5,7 @@ import { MonedasComponent } from './monedas/monedas.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { DetalleMonedaComponent } from './detalle-moneda/detalle-moneda.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth/auth.guard';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'portfolio', component: MonedasComponent, canActivate: [AuthGuard]},
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'coin/:id', component: DetalleMonedaComponent}
+  { path: 'coin/:id', component: DetalleMonedaComponent},
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
