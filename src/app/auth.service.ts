@@ -73,4 +73,8 @@ export class AuthService {
     this.userID = '';
     this.router.navigate(['/']);
   }
+
+  isAuthentificated(){
+    return this.isLogged;
+  }
 }

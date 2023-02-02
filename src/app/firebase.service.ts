@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collectionData, collection, query, where, addDoc, deleteDoc, doc, getDocs} from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, query, where, setDoc, deleteDoc, doc, getDocs} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -11,20 +11,19 @@ export class FirebaseService {
   public datosAsociaciones: Observable<any[]>;
 
   constructor(public firestore: Firestore, public auth: AuthService) {
-    const datos = collection(this.firestore, 'asociaciones');
+    const datos = collection(this.firestore, "asociaciones");
     this.datosAsociaciones = collectionData(datos);
    }
 
   addCrypto(currency: any){
-    addDoc(collection(this.firestore, 'asociaciones'), {
+    setDoc(doc(this.firestore, 'asociaciones', currency.id), {
       userID: this.auth.userID,
-      currency: currency,
       currencyID: currency.id,
     });
   }
 
   deleteCrypto(currency: any){
-    
+    deleteDoc(doc(this.firestore, 'asociaciones', currency));
   }
   
    // Para iterar sobre los datos de la base de datos

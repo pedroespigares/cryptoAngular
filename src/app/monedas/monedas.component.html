@@ -5,7 +5,7 @@
       <div class="col-lg-2 d-flex flex-column justify-content-start align-items-start">
         <table class="allMonedas">
           <tr *ngFor="let singleMoneda of this.datosAPI.cryptoList | slice : (page - 1) * pageSize : page * pageSize">
-            <td (click)="selectMoneda(singleMoneda, $event)">
+            <td (click)="selectMoneda(singleMoneda)">
               {{ singleMoneda.name }}
             </td>
           </tr>
@@ -37,23 +37,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let singleMoneda of this.firebase.datosAsociaciones | async">
-              <td>
-                <img
-                  src="{{ singleMoneda.currency.image.large }}"
-                  alt="{{ singleMoneda.currency.name }}"
-                  width="50px"
-                />
-              </td>
-              <td>{{ singleMoneda.currency.name }}</td>
-              <td>{{ singleMoneda.currency.symbol }}</td>
-              <td>{{ singleMoneda.currency.market_data.current_price.eur }}</td>
-              <td>{{ singleMoneda.currency.market_data.market_cap.eur }}</td>
-              <td>{{ singleMoneda.currency.market_data.total_volume.eur }}</td>
-              <td>{{ singleMoneda.currency.market_data.high_24h.eur }}</td>
-              <td>{{ singleMoneda.currency.market_data.low_24h.eur }}</td>
-              <td><button class="btn-primary">See details</button></td>
-              <td><i (click)="deleteMoneda(singleMoneda.currency)" class="fa-solid fa-trash"></i></td>
+            <tr app-crypto-in-table *ngFor="let singleMoneda of cryptoData" [crypto]="singleMoneda" >
             </tr>
           </tbody>
         </table>

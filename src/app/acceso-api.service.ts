@@ -18,4 +18,8 @@ export class AccesoAPIService {
       this.cryptoList = data;
     })
   }
+
+  getCryptoData(id: string){
+    return this.http.get("https://api.coingecko.com/api/v3/coins/" + id);
+  }
 }

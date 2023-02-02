@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { CryptoInTableComponent } from './crypto-in-table/crypto-in-table.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoginComponent } from './login/login.component';
     DetalleMonedaComponent,
     MonedasComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    CryptoInTableComponent
   ],
   imports: [
     BrowserModule,

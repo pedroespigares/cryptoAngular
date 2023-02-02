@@ -11,19 +11,31 @@ import { FirebaseService } from '../firebase.service';
 export class MonedasComponent {
   page = 1;
   pageSize = 10;
+  cryptoData = new Array<any>();
 
   constructor(public datosAPI: AccesoAPIService, public auth: AuthService, public firebase: FirebaseService){}
 
   ngOnInit(){
     this.datosAPI.getCryptoList();
+    this.getDatosOfEachCrypto();
   }
 
-  selectMoneda(moneda: any, event: any){
+  selectMoneda(moneda: any){
     this.firebase.addCrypto(moneda);
-    event.target.classList.add('selected');
   }
 
-  deleteMoneda(moneda: any){
-    this.firebase.deleteCrypto(moneda.id);
+  getDatosOfEachCrypto(){
+    this.firebase.datosAsociaciones.forEach((element) => {
+      // this.cryptoData = new Array<any>();
+      for(let i = 0; i < element.length; i++){
+        this.datosAPI.getCryptoData(element[i].currencyID).subscribe((data:any) => {
+
+          if(this.cryptoData.find((crypto:any) => crypto.id == data.id))
+            return;
+
+          this.cryptoData.push(data);
+        })
+      }
+    });
   }
 }
