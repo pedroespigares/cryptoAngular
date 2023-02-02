@@ -6,7 +6,7 @@
         <table class="allMonedas">
           <tr *ngFor="let singleMoneda of this.datosAPI.cryptoList | slice : (page - 1) * pageSize : page * pageSize">
             <td (click)="selectMoneda(singleMoneda)">
-              {{ singleMoneda.name }}
+              {{ singleMoneda.name }} <i class="fa-solid fa-plus ps-2"></i>
             </td>
           </tr>
         </table>

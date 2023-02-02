@@ -12,39 +12,17 @@ export class FirebaseService {
 
   constructor(public firestore: Firestore, public auth: AuthService) {
     const datos = collection(this.firestore, "asociaciones");
-    this.datosAsociaciones = collectionData(datos);
+    this.datosAsociaciones = collectionData(query(datos, where("userID", "==", this.auth.userID)));
    }
 
   addCrypto(currency: any){
-    setDoc(doc(this.firestore, 'asociaciones', currency.id), {
+    setDoc(doc(this.firestore, 'asociaciones', `${currency.id}-${this.auth.userID}`), {
       userID: this.auth.userID,
       currencyID: currency.id,
     });
   }
 
   deleteCrypto(currency: any){
-    deleteDoc(doc(this.firestore, 'asociaciones', currency));
+    deleteDoc(doc(this.firestore, 'asociaciones', `${currency}-${this.auth.userID}`));
   }
-  
-   // Para iterar sobre los datos de la base de datos
-  // let dato of datosAsociaciones | async
-
-  // datosAsociaciones: Observable<any[]>;;
-
-  // datosModo2 = new Array<any>();
-
-  // Este metodo se trae los datos de la base de datos tal cual
-
-  // constructor(public firestore: Firestore){
-  //   const datos = collection(firestore, 'asociaciones');
-  //   this.datosAsociaciones = collectionData(query(datos, where('userID', '==', 'userID')));
-  // }
-
-  // Para escribir en la base de datos dentro de un metodo
-
-  // escribirDatos(){
-    // addDoc(collection(this.firestore, 'asociaciones'), {
-    //   userID: 'userID',
-    //   nombre: 'nombre',
-    // });
 }
