@@ -8,10 +8,12 @@ import { FirebaseService } from '../firebase.service';
 })
 export class CryptoInTableComponent {
   @Input() crypto: any;
+  @Input() arrayCrypto:any;
 
   constructor(public firebase: FirebaseService) {}
 
   deleteCrypto(){
     this.firebase.deleteCrypto(this.crypto.id);
+    this.arrayCrypto.splice(this.arrayCrypto.indexOf(this.crypto), 1);
   }
 }

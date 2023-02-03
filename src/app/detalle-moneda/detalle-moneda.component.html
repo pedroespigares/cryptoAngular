@@ -19,9 +19,9 @@
               </p>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-text">
-                        <p *ngIf="coinData.description.es" [innerHTML]="coinData.description.es"></p>
-                        <p *ngIf="!coinData.description.es" [innerHTML]="coinData.description.en"></p>
-                        <p *ngIf="!coinData.description.es && !coinData.description.en" [innerHTML]="coinData.description.en">Description not available</p>
+                        <p *ngIf="coinData.description.es != ''" [innerHTML]="coinData.description.es"></p>
+                        <p *ngIf="coinData.description.es == ''" [innerHTML]="coinData.description.en"></p>
+                        <p *ngIf="coinData.description.es == '' && coinData.description.en == ''">Description not available</p>
                     </div>
                 </div>
                 <p class="card-text mt-4 mb-4 fs-1 d-1">{{coinData.market_data.current_price.eur}} <span>eur</span></p>

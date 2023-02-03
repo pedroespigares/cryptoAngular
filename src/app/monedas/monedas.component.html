@@ -37,7 +37,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr app-crypto-in-table *ngFor="let singleMoneda of cryptoData" [crypto]="singleMoneda" >
+            <tr app-crypto-in-table *ngFor="let singleMoneda of cryptoData" [crypto]="singleMoneda" [arrayCrypto]="cryptoData">
             </tr>
           </tbody>
         </table>

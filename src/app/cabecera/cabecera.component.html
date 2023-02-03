@@ -15,6 +15,7 @@
             <a routerLink="/portfolio" class="nav-link">Portfolio</a>
           </li>
         </ul>
+        <img *ngIf="this.auth.isLogged && this.auth.userPhoto != null" [src]="this.auth.userPhoto" referrerpolicy="no-referrer" width="50" height="50" class="d-inline-block align-text-top me-4 rounded-circle">
         <span id="userMessage" *ngIf="this.auth.isLogged" class="navbar-text">
           Bienvenido <span id="userEmail">{{this.auth.userEmail.split('@')[0]}}</span>
         </span>

@@ -10,6 +10,7 @@ export class AuthService {
   public isLogged:boolean = false;
   public userID:string = '';
   public userEmail:any = '';
+  public userPhoto:any = '';
   constructor(public auth:Auth, public router:Router) { }
 
   checkAuthState(){
@@ -18,6 +19,7 @@ export class AuthService {
         this.isLogged = true;
         this.userEmail = user.email
         this.userID = user.uid;
+        this.userPhoto = user.photoURL;
       }else{
         this.isLogged = false;
         this.userID = '';
