@@ -15,7 +15,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
       <li>Al darle a añadir manedas muy rápido, alguna de ellas tardará en aparecer lo que tarde la API en enviar la información</li>
     </ul>
   </li>
-  <li>Por el momento, los datos se refrescan cada 10 minutos para evitar problemas con la API. Se podrá cambiar en cualquier momento</li>
+  <li>Por el momento, los datos se refrescan cada 5 minutos para evitar problemas con la API. Se podrá cambiar en cualquier momento</li>
+  <li>En el detalle de la moneda, a veces tarda un poco el historial de precios (depende de la moneda, ya que si lleva mucho tiempo existiendo, mas datos habrá)</li>
   <li>No sé si será cosa de firebase, pero en versión local, las rutas protegidas y la página 404 personalizada al meter una ruta que no existiese
    funcionaban perfectamente, enviándote al componente correspondiente. Pero en la página en producción me dice directamente que no existe.
   </li>

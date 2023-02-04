@@ -17,7 +17,7 @@ export class MonedasComponent {
     this.getDatosOfEachCrypto();
     // Voy a hacer que se actualice cada 5 minutos para evitar que la API me bloquee
     console.log("Actualizando datos de las criptomonedas");
-  }, 900000);
+  }, 300000);
 
   constructor(public datosAPI: AccesoAPIService, public auth: AuthService, public firebase: FirebaseService){}
 

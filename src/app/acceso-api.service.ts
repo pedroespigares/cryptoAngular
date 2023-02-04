@@ -20,4 +20,8 @@ export class AccesoAPIService {
   getCryptoData(id: string){
     return this.http.get("https://api.coingecko.com/api/v3/coins/" + id);
   }
+
+  getHistoricalData(id: string){
+    return this.http.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=max`);
+  }
 }

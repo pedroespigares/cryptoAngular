@@ -21,27 +21,6 @@ export class DetalleMonedaComponent implements AfterViewInit{
     this.id = this.route.snapshot.paramMap.get('id');
     this.datosAPI.getCryptoData(this.id).subscribe((data: {}) => {
       this.coinData = data;
-      console.log(this.coinData);
-      // DataForPoints es un objeto que contiene los datos que se van a mostrar en el grafico
-      this.dataForPoints = {
-        '1y': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_1y_in_currency.eur),
-        '200d': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_200d_in_currency.eur),
-        '60d': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_60d_in_currency.eur),
-        '30d': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_30d_in_currency.eur),
-        '14d': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_14d_in_currency.eur),
-        '7d': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_7d_in_currency.eur),
-        '24h': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_24h_in_currency.eur),
-        '1h': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_1h_in_currency.eur),
-        'Actual': this.coinData.market_data.current_price.eur,
-      }
-
-      // Recorremos el objeto dataForPoints y lo pasamos a dataPoints, diferenciando los labels de los valores
-      for (let key in this.dataForPoints) {
-        this.dataPoints.push({
-          label: key,
-          y: this.dataForPoints[key]
-        });
-      }
     });
 
 
@@ -57,6 +36,7 @@ export class DetalleMonedaComponent implements AfterViewInit{
       },
       subtitles: [{
         text: "Loading Data...",
+        fontColor: "#F2BC07",
         fontSize: 24,
         horizontalAlign: "center",
         verticalAlign: "center",
@@ -71,7 +51,7 @@ export class DetalleMonedaComponent implements AfterViewInit{
       data: [{
         lineColor: "#F2BC07",
         markerColor: "#F2BC07",
-        markerSize: 12,
+        markerSize: 2,
         type: "line",
         name: "Closing Price",
         yValueFormatString: "€#,###.00",
@@ -84,12 +64,21 @@ export class DetalleMonedaComponent implements AfterViewInit{
     this.chart = chart;
   }
 
-  // Renderizamos el grafico una vez que se ha cargado la informacion de la moneda
+  // Renderizamos el grafico una vez que se ha cargado la informacion de la moneda (el historico de precios)
   ngAfterViewInit() {
     this.chartOptions.subtitles[0].text = "";
     this.chartOptions.title.text = this.coinData.name + " Historical Price";
     this.chartOptions.data.name = this.coinData.name + " Historical Price";
+    this.datosAPI.getHistoricalData(this.id).subscribe((data: {}) => {
+      this.dataForPoints = data;
+      for (let i = 0; i < this.dataForPoints.prices.length; i++) {
+        this.dataPoints.push({
+          x: new Date(this.dataForPoints.prices[i][0]),
+          y: this.dataForPoints.prices[i][1]
+        });
+      }
     this.chart.render();
+    });
   }
 
   // El metodo getPriceWithPercentageChange devuelve el precio actual de la moneda + el porcentaje de cambio que le pasemos como parametro
