@@ -22,6 +22,7 @@ export class DetalleMonedaComponent implements AfterViewInit{
     this.datosAPI.getCryptoData(this.id).subscribe((data: {}) => {
       this.coinData = data;
       console.log(this.coinData);
+      // DataForPoints es un objeto que contiene los datos que se van a mostrar en el grafico
       this.dataForPoints = {
         '1y': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_1y_in_currency.eur),
         '200d': this.getPriceWithPercentageChange(this.coinData.market_data.price_change_percentage_200d_in_currency.eur),
@@ -34,6 +35,7 @@ export class DetalleMonedaComponent implements AfterViewInit{
         'Actual': this.coinData.market_data.current_price.eur,
       }
 
+      // Recorremos el objeto dataForPoints y lo pasamos a dataPoints, diferenciando los labels de los valores
       for (let key in this.dataForPoints) {
         this.dataPoints.push({
           label: key,
@@ -43,6 +45,7 @@ export class DetalleMonedaComponent implements AfterViewInit{
     });
 
 
+    // Configuracion del grafico
     this.chartOptions = {
       theme: "dark2",
       zoomEnabled: true,
@@ -81,6 +84,7 @@ export class DetalleMonedaComponent implements AfterViewInit{
     this.chart = chart;
   }
 
+  // Renderizamos el grafico una vez que se ha cargado la informacion de la moneda
   ngAfterViewInit() {
     this.chartOptions.subtitles[0].text = "";
     this.chartOptions.title.text = this.coinData.name + " Historical Price";
