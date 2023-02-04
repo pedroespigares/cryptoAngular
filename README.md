@@ -2,6 +2,25 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
+## https://cryptoangular.web.app/
+
+## Puntos importantes sobre el proyecto
+
+<ul>
+  <li>Como en el anterior, si en GitHub utilizas el mismo correo que en Google, solo podrás iniciar sesión con uno de ellos</li>
+  <li>
+    Al darle al añadir una moneda, si esta no aparece puede ser por 2 motivos:
+    <ul>
+      <li>CORS: Bloqueado por la página por límite de peticiones</li>
+      <li>Al darle a añadir manedas muy rápido, alguna de ellas tardará en aparecer lo que tarde la API en enviar la información</li>
+    </ul>
+  </li>
+  <li>Por el momento, los datos se refrescan cada 10 minutos para evitar problemas con la API. Se podrá cambiar en cualquier momento</li>
+  <li>No sé si será cosa de firebase, pero en versión local, las rutas protegidas y la página 404 personalizada al meter una ruta que no existiese
+   funcionaban perfectamente, enviándote al componente correspondiente. Pero en la página en producción me dice directamente que no existe.
+  </li>
+</ul>
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
