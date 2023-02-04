@@ -28,7 +28,7 @@ h5.mini-card-title{
     font-weight: bold;
 }
 
-.fa-solid{
+.fa-mobile-screen, .fa-calendar, .fa-chart-simple{
     color: var(--yellow);
     font-size: 6rem;
     box-shadow: 0 0 0 0.1rem var(--yellow);
@@ -64,4 +64,40 @@ input{
 input:focus{
     border-color: var(--yellow);
     box-shadow: 0 0 0 0.1rem var(--yellow);
+}
+
+h1{
+    color: var(--yellow);
+    font-family: Gotham;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h3{
+    color: white;
+    font-family: Gotham;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fa-database, .fa-lock, .fa-shield-halved{
+    color: var(--yellow);
+    font-size: 6rem;
+    padding: 2rem;
+    border-radius: 50%;
+}
+
+.card-reliabe-title{
+    color: var(--yellow);
+    font-family: Gotham;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.card-reliabe-text{
+    color: white;
+    font-family: Gotham;
+    font-size: 1rem;
+    font-weight: bold;
 }

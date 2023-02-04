@@ -41,4 +41,17 @@ button:hover{
     background-color: var(--black);
     color: var(--yellow);
     border-color: var(--yellow);
+    transition: 0.2s;
+}
+
+i{
+    color: var(--yellow);
+    scale: 3;
+    transition: 0.2s;
+}
+
+i:hover{
+    scale: 4;
+    cursor: pointer;
+    transition: 0.2s;
 }

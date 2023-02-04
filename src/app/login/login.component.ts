@@ -22,4 +22,8 @@ export class LoginComponent {
   googleLogin(){
     this.auth.googleLogin();
   }
+
+  githubLogin(){
+    this.auth.githubLogin();
+  }
 }

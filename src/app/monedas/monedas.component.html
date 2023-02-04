@@ -1,5 +1,5 @@
 <main>
-  <h1 class="text-center pt-5">{{this.auth.userEmail.split('@')[0]}} portfolio</h1>
+  <h1 class="text-center pt-5"><span>{{this.auth.userEmail.split('@')[0]}}</span> portfolio</h1>
   <div class="card lg-3" style="max-width: 100%">
     <div class="row g-0 justify-content-center align-items-center">
       <div class="col-lg-2 d-flex flex-column justify-content-start align-items-start">
@@ -20,8 +20,8 @@
         </ngb-pagination>
       </div>
       <div class="col-lg-10 d-flex justify-content-center align-items-center">
-        <h2 *ngIf="!this.firebase.datosAsociaciones">No hay monedas seleccionadas</h2>
-        <table *ngIf="this.firebase.datosAsociaciones" class="monedasShowing">
+        <h2 *ngIf="!cryptoData.length">No hay monedas seleccionadas</h2>
+        <table *ngIf="cryptoData.length" class="monedasShowing">
           <thead>
             <tr>
               <th>Image</th>

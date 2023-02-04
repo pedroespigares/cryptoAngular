@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, GithubAuthProvider} from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -61,6 +61,22 @@ export class AuthService {
       this.isLogged = true;
       this.userID = userCredential.user.uid;
       this.userEmail = userCredential.user.email
+      this.userPhoto = userCredential.user.photoURL;
+      this.router.navigate(['/']);
+    })
+    .catch((error) => {
+      this.isLogged = false;
+      this.userID = '';
+    });
+  }
+
+  githubLogin(){
+    signInWithPopup(this.auth, new GithubAuthProvider())
+    .then((userCredential) => {
+      this.isLogged = true;
+      this.userID = userCredential.user.uid;
+      this.userEmail = userCredential.user.email
+      this.userPhoto = userCredential.user.photoURL;
       this.router.navigate(['/']);
     })
     .catch((error) => {

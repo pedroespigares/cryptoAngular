@@ -20,6 +20,9 @@ import { LoginComponent } from './login/login.component';
 import { CryptoInTableComponent } from './crypto-in-table/crypto-in-table.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import * as CanvasJSAngularChart from "../assets/canvasjs.angular.component"
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SignupComponent,
     LoginComponent,
     CryptoInTableComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CanvasJSChart
   ],
   imports: [
     BrowserModule,

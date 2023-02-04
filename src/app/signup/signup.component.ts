@@ -23,4 +23,8 @@ export class SignupComponent {
   googleRegister(){
     this.auth.googleLogin();
   }
+
+  githubRegister(){
+    this.auth.githubLogin();
+  }
 }

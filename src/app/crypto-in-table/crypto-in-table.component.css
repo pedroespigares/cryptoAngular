@@ -43,3 +43,13 @@ i:hover{
     transition: 0.2s;
     scale: 2.3;
 }
+
+img:hover{
+    cursor: pointer;
+    transition: 0.2s;
+    scale: 1.1;
+}
+
+img{
+    transition: 0.2s;
+}

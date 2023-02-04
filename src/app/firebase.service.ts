@@ -12,6 +12,7 @@ export class FirebaseService {
 
   constructor(public firestore: Firestore, public auth: AuthService) {
     const datos = collection(this.firestore, "asociaciones");
+    this.auth.checkAuthState();
     this.datosAsociaciones = collectionData(query(datos, where("userID", "==", this.auth.userID)));
    }
 

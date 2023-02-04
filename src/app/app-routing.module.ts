@@ -9,6 +9,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth/auth.guard';
 
+
+// CanActivate viene del AuthGuard y es un servicio que se encarga de comprobar si el usuario está logueado o no
 const routes: Routes = [
   { path: '', component: CuerpoComponent},
   { path: 'portfolio', component: MonedasComponent, canActivate: [AuthGuard]},
