@@ -20,6 +20,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   <li>No sé si será cosa de firebase, pero en versión local, las rutas protegidas y la página 404 personalizada al meter una ruta que no existiese
    funcionaban perfectamente, enviándote al componente correspondiente. Pero en la página en producción me dice directamente que no existe.
   </li>
+  <li>Si se ve en portátil, es mejor que se ponga zoom al 67% (lo hice en desktop, asi que hay algunas cosas que no están muy adaptadas)</li>
 </ul>
 
 ## Development server
