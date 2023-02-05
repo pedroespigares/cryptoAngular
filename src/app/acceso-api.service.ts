@@ -11,7 +11,7 @@ export class AccesoAPIService {
   constructor(private http: HttpClient) {}
 
   getCryptoList(){
-    this.http.get("https://api.coingecko.com/api/v3/coins")
+    this.http.get("https://api.coingecko.com/api/v3/coins/")
     .subscribe((data:any) => {
       this.cryptoList = data;
     })
